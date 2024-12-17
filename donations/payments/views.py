@@ -5,6 +5,7 @@ from django.conf import settings
 from django.shortcuts import redirect, render
 from django.views import View
 from pesepay import Pesepay
+from django.http import HttpResponseNotAllowed
 
 from .models import Donation, Payment
 
@@ -14,7 +15,6 @@ logger = logging.getLogger(__name__)
 pesepay = Pesepay(settings.PESEPAY_INTEGRATION_KEY, settings.PESEPAY_ENCRYPTION_KEY)
 
 # Initiate Payment
-
 def initiate_payment(request):
     if request.method == "POST":
         amount = request.POST.get("amount")
