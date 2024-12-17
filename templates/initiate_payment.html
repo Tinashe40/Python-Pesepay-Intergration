@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donation App</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            height: 100%;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: #f4f7fc;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            display: flex;
+            height: 80%;
+            background: linear-gradient(to right, #2e3b4e, #4caf50);
+            border-radius: 12px;
+            overflow: hidden;
+            width: 100%;
+            max-width: 1100px;
+        }
+
+        .text-section {
+            flex: 1;
+            color: white;
+            padding: 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+        }
+
+        .text-section h1 {
+            font-size: 56px;
+            margin-bottom: 20px;
+            color: #FFD700;
+        }
+
+        .text-section p {
+            font-size: 20px;
+            line-height: 1.6;
+            margin-bottom: 15px;
+            color: #fff;
+        }
+
+        .form-section {
+            flex: 1;
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            box-shadow: -3px 0 5px rgba(0, 0, 0, 0.3);
+        }
+
+        .form-section h2 {
+            margin-bottom: 20px;
+            font-size: 28px;
+            color: #333;
+        }
+
+        .form-section form {
+            width: 100%;
+            max-width: 400px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-section label {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #555;
+        }
+
+        .form-section input,
+        .form-section select,
+        .form-section button {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .form-section input:focus,
+        .form-section select:focus {
+            border-color: #4CAF50;
+            outline: none;
+            box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+        }
+
+        .form-section button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
+            transition: all 0.3s ease;
+        }
+
+        .form-section button:hover {
+            background-color: #45a049;
+        }
+
+        .message {
+            font-size: 16px;
+            color: red;
+            text-align: center;
+        }
+
+        .result-container {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .home-button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .home-button:hover {
+            background-color: #45a049;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                width: 90%;
+                height: auto;
+            }
+
+            .text-section, .form-section {
+                padding: 30px;
+            }
+
+            .text-section h1 {
+                font-size: 42px;
+            }
+
+            .text-section p {
+                font-size: 18px;
+            }
+
+            .form-section h2 {
+                font-size: 24px;
+            }
+
+            .form-section form {
+                max-width: 100%;
+            }
+
+            .form-section input,
+            .form-section select,
+            .form-section button {
+                font-size: 14px;
+                padding: 10px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="text-section">
+            <h1>Pfupiso</h1>
+            <p><strong>Be the Change:</strong> Support Others, Make a Difference.</p>
+            <p>Your contributions bring hope and transform lives through our church's mission. Together, we can uplift our community and empower those in need.</p>
+            <p>Every donation counts. Join us today in making a lasting impact!</p>
+        </div>
+        <div class="form-section">
+            <h2>Make a Donation</h2>
+            <form method="POST" action="">
+                {% csrf_token %}
+                <label for="amount">Amount:</label>
+                <input type="number" id="amount" name="amount" step="0.01" required>
+
+                <label for="currency">Currency:</label>
+                <select id="currency" name="currency" required>
+                    <option value="ZIG">ZIG</option>
+                    <option value="USD">USD</option>
+                </select>
+
+                <button type="submit">Donate Now</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
