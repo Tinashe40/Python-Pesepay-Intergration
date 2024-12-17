@@ -6,6 +6,7 @@ class PaymentSerializer(serializers.ModelSerializer):
         model = Payment
         fields = '__all__'
 
+
 class DonationSerializer(serializers.ModelSerializer):
     class Meta:
         model = Donation
