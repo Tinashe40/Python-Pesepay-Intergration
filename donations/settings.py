@@ -13,6 +13,15 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 import os
 from pathlib import Path
 
+import environ
+
+env = environ.Env()
+
+DATABASES = {
+    'default': env.db(),
+}
+
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -21,13 +30,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-za@q=okr7%1b&xv5lx4rswxwak)5l18oyoz!32z(w6%@$ga8yf'
+# SECRET_KEY = 'django-insecure-za@q=okr7%1b&xv5lx4rswxwak)5l18oyoz!32z(w6%@$ga8yf'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-# ALLOWED_HOSTS = ['donations.up.railway.app','localhost']
-ALLOWED_HOSTS=['*']
+ALLOWED_HOSTS = ['donations.up.railway.app','localhost']
 
 # Application definition
 
@@ -79,16 +87,16 @@ WSGI_APPLICATION = 'donations.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'donations',
-        'USER': 'root',
-        'PASSWORD': 'sudo0047',
-        'HOST': 'localhost',
-        'PORT': '3306',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'donations',
+#         'USER': 'root',
+#         'PASSWORD': 'sudo0047',
+#         'HOST': 'localhost',
+#         'PORT': '3306',
+#     }
+# }
 
 PESEPAY_INTEGRATION_KEY = 'a111f17c-982f-48dc-898d-03362af64ac4'
 PESEPAY_ENCRYPTION_KEY = '09c4d8c3ce324b578b7efc6e6cdf470d'
