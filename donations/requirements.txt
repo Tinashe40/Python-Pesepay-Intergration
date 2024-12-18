@@ -13,7 +13,7 @@ isort==5.13.2
 jedi==0.19.2
 jsonpickle==4.0.1
 mccabe==0.7.0
-mysqlclient==2.2.6
+mysqlclient==2.0
 packaging==24.2
 parso==0.8.4
 pesepay==1.0.8
