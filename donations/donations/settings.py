@@ -11,20 +11,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 import os
-import environ
 from pathlib import Path
-
-
-
-env = environ.Env()
-environ.Env.read_env()  # Reads from .env file in development
-
-SECRET_KEY = env("SECRET_KEY")
-DEBUG = env.bool("DEBUG", default=False)
-
-DATABASES = {
-    'default': env.db(),
-}
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -39,8 +26,8 @@ SECRET_KEY = 'django-insecure-za@q=okr7%1b&xv5lx4rswxwak)5l18oyoz!32z(w6%@$ga8yf
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['donations.up.railway.app','localhost']
-
+# ALLOWED_HOSTS = ['donations.up.railway.app','localhost']
+ALLOWED_HOSTS=['*']
 
 # Application definition
 
@@ -95,10 +82,10 @@ WSGI_APPLICATION = 'donations.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'railway',
+        'NAME': 'donations',
         'USER': 'root',
-        'PASSWORD': 'QKwaHUSgLsNEhDbqvkgdJlKFxTzIFGft',
-        'HOST': 'mysql.railway.internal',
+        'PASSWORD': 'sudo0047',
+        'HOST': 'localhost',
         'PORT': '3306',
     }
 }
@@ -149,7 +136,6 @@ STATICFILES_DIRS = [
 
 # This should be a single directory for collected static files.
 STATIC_ROOT = BASE_DIR / "staticfiles"
-
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Default primary key field type
