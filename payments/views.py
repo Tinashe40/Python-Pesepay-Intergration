@@ -106,7 +106,7 @@ class PaymentReturnView(View):
                 'reason_for_payment': payment_reason,
                 'amount': amount,
                 'currency': currency_code,
-                 'reference': payment.reference_number, 
+                'reference': payment.reference_number, 
             }
 
             # If the transaction is successful, update the donation status
