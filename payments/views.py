@@ -26,7 +26,7 @@ def initiate_payment(request):
             unique_placeholder = str(uuid.uuid4())
             payment = Payment.objects.create(reference_number=unique_placeholder)
 
-            pesepay.return_url = f'http://127.0.0.1:8000/payment/return?payment_id={payment.payment_id}'
+            pesepay.return_url = f'https://doantions.up.railway.app/payment/return?payment_id={payment.payment_id}'
             pesepay.result_url = 'http://127.0.0.1:8000/payment/result/'
 
             # Create a transaction
