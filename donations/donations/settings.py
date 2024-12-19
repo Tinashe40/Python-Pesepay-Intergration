@@ -20,9 +20,9 @@ if ENVIRONMENT == 'development':
 else:
     DEBUG=False
     
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'donationspy.up.railway.app']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'doantions.up.railway.app']
 
-CSRF_TRUSTED_ORIGINS=['https://donationspy.up.railway.app']
+CSRF_TRUSTED_ORIGINS=['https://doantions.up.railway.app']
 
 INTERNAL_IPS=(
     '127.0.0.1',
