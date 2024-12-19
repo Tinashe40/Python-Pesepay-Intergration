@@ -5,8 +5,10 @@ dj-database-url==2.3.0
 Django==5.1.4
 django-environ==0.11.2
 djangorestframework==3.15.2
+gunicorn==23.0.0
 idna==3.10
 jsonpickle==4.0.1
+packaging==24.2
 pesepay==1.0.8
 psycopg2-binary==2.9.10
 pycryptodome==3.21.0
