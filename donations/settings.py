@@ -1,6 +1,6 @@
 import os
 from pathlib import Path
-
+from decouple import config
 import dj_database_url
 import environ
 
@@ -75,7 +75,9 @@ WSGI_APPLICATION = 'donations.wsgi.application'
 
 # Database configuration
 DATABASES = {
-    'default': dj_database_url.parse(env('DATABASE_URL', default='postgres://user:password@localhost:5432/dbname'))
+    'default': dj_database_url.config(
+        default=config('DATABASE_URL')
+    )
 }
 
 # Pesepay configuration
