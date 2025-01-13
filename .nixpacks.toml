@@ -1,2 +1,16 @@
-[phases.setup]
-aptPkgs = ["python3-dev", "default-libmysqlclient-dev", "build-essential"]
+[phases]
+  [phases.build]
+  commands = [
+    "pip install -r requirements.txt",
+    "python manage.py collectstatic --noinput"
+  ]
+
+  [phases.start]
+  commands = [
+    "gunicorn donations.wsgi:application --bind 0.0.0.0:$PORT"
+  ]
+
+  [phases.release]
+  commands = [
+    "python manage.py migrate"
+  ]
