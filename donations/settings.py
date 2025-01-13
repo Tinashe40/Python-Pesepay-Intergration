@@ -1,6 +1,5 @@
 import os
 from pathlib import Path
-from decouple import config
 import dj_database_url
 import environ
 
@@ -20,9 +19,9 @@ if ENVIRONMENT == 'development':
 else:
     DEBUG=False
     
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'php-pesepay.up.railway.app']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'php-pesepay.onrender.com']
 
-CSRF_TRUSTED_ORIGINS=['https://php-pesepay.up.railway.app']
+CSRF_TRUSTED_ORIGINS=['https://php-pesepay.onrender.com']
 
 INTERNAL_IPS=(
     '127.0.0.1',
@@ -40,6 +39,23 @@ INSTALLED_APPS = [
     'rest_framework',
     'donations',
 ]
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['console'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
+    },
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -52,6 +68,8 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+MIDDLEWARE.insert(1, 'whitenoise.middleware.WhiteNoiseMiddleware')
+
 
 ROOT_URLCONF = 'donations.urls'
 
@@ -76,7 +94,7 @@ WSGI_APPLICATION = 'donations.wsgi.application'
 # Database configuration
 DATABASES = {
     'default': dj_database_url.config(
-        default=config('DATABASE_URL')
+        default=os.getenv('DATABASE_URL')
     )
 }
 
