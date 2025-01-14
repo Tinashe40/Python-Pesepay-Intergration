@@ -1,1 +1,1 @@
-web: gunicorn donations.wsgi:application
+web: gunicorn donations.wsgi:application --bind 0.0.0.0:$PORT
