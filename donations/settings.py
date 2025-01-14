@@ -22,8 +22,6 @@ else:
 # ALLOWED_HOSTS = ["localhost", "127.0.0.1", "php-pesepay-intergration.up.railway.app"]
 ALLOWED_HOSTS = ["*"]
 
-CSRF_TRUSTED_ORIGINS=['https://php-pesepay-intergration.up.railway.app']
-
 INTERNAL_IPS=(
     '127.0.0.1',
     'localhost:8000'
