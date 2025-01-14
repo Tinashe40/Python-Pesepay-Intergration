@@ -1,7 +1,12 @@
-{
-  "phases": {
-    "setup": "python -m venv /opt/venv && . /opt/venv/bin/activate",
-    "install": "pip install -r requirements.txt",
-    "start": "gunicorn donations.wsgi:application --bind 0.0.0.0:$PORT"
-  }
-}
+[phases]
+setup = "python -m venv /opt/venv && . /opt/venv/bin/activate"
+install = "pip install -r requirements.txt"
+build = "python manage.py collectstatic --noinput"
+
+[environment]
+DJANGO_SETTINGS_MODULE = "donations.settings"
+PYTHONUNBUFFERED = "1"
+PYTHONDONTWRITEBYTECODE = "1"
+
+[commands]
+start = "gunicorn donations.wsgi:application --bind 0.0.0.0:$PORT"
