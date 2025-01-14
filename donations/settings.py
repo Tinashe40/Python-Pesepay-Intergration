@@ -19,7 +19,8 @@ if ENVIRONMENT == 'development':
 else:
     DEBUG=False
     
-ALLOWED_HOSTS = ["localhost", "127.0.0.1", "php-pesepay-intergration.up.railway.app"]
+# ALLOWED_HOSTS = ["localhost", "127.0.0.1", "php-pesepay-intergration.up.railway.app"]
+ALLOWED_HOSTS = ["*"]
 
 CSRF_TRUSTED_ORIGINS=['https://php-pesepay-intergration.up.railway.app']
 
