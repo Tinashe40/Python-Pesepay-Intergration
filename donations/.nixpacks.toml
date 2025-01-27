@@ -1,2 +1,5 @@
-[phases.setup]
-aptPkgs = ["python3-dev", "default-libmysqlclient-dev", "build-essential"]
+[build]
+  language = "python"
+  version = "3.10"  # Make sure you're using a version that matches your app
+  install = "pip install -r requirements.txt"
+  start = "gunicorn donations.wsgi:application --bind 0.0.0.0:$PORT"
