@@ -13,15 +13,14 @@ environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 
 # Environment variables
 SECRET_KEY = env('SECRET_KEY')  # No fallback, as SECRET_KEY should always be in .env
-# ENVIRONMENT = env('ENVIRONMENT', default='development')
-# if ENVIRONMENT == 'development':
-#     DEBUG =True
-# else:
-#     DEBUG=False
+ENVIRONMENT = env('ENVIRONMENT', default='development')
+if ENVIRONMENT == 'development':
+    DEBUG =True
+else:
+    DEBUG=False
     
-DEBUG=False
-# ALLOWED_HOSTS = ["localhost", "127.0.0.1", "php-pesepay-intergration.up.railway.app"]
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ["localhost", "127.0.0.1", "php-pesepay-intergration.up.railway.app"]
+
 
 INTERNAL_IPS=(
     '127.0.0.1',
