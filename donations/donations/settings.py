@@ -19,12 +19,18 @@ if ENVIRONMENT == 'development':
 else:
     DEBUG=False
     
-ALLOWED_HOSTS = ["localhost", "127.0.0.1", "php-pesepay-intergration.up.railway.app"]
+ALLOWED_HOSTS = ["localhost", "127.0.0.1", "plugins.pesepay.com"]
 
 
 INTERNAL_IPS=(
     '127.0.0.1',
-    'localhost:8000'
+    'localhost:8000',
+    'https://python.plugins.pesepay.com',
+    'https://python.plugins.pesepay.com/',
+    'https://python.plugins.pesepay.com/python',
+    'plugins.pesepay.com/python',
+    'plugins.pesepay.com/python/',
+    'https://plugins.pesepay.com/python/',
 )
 # Application definition
 INSTALLED_APPS = [
@@ -89,11 +95,29 @@ TEMPLATES = [
 WSGI_APPLICATION = 'donations.wsgi.application'
 
 # Database configuration
+# DATABASES = {
+#     'default': dj_database_url.config(
+#         default=os.getenv('DATABASE_URL')
+#     )
+# }
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'python',
+#         'USER': 'root',
+#         'PASSWORD': 'sudo0047',
+#         'HOST': 'localhost',  # Change to your MySQL server address if needed
+#         'PORT': '3306',  # Default MySQL port
+#         'OPTIONS': {
+#             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+#         },
+#     }
+# }
+
 DATABASES = {
-    'default': dj_database_url.config(
-        default=os.getenv('DATABASE_URL')
-    )
+    'default': dj_database_url.config(default='mysql://root:sudo00477@localhost:3306/python')
 }
+
 
 # Pesepay configuration
 PESEPAY_INTEGRATION_KEY = env('PESEPAY_INTEGRATION_KEY')

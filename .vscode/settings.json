@@ -1,10 +1,26 @@
 {
   "cSpell.words": [
     "asgi",
+    "asgiref",
+    "certifi",
+    "djangorestframework",
+    "gunicorn",
+    "idna",
+    "jsonpickle",
     "Neue",
+    "oyoz",
     "Pfupiso",
     "Pkgs",
+    "psycopg",
+    "pycryptodome",
     "rgba",
+    "rswxwak",
+    "shellescape",
+    "sqlparse",
+    "stylesheet",
+    "Tinashe",
+    "urllib",
+    "whitenoise",
     "wsgi"
   ]
 }
