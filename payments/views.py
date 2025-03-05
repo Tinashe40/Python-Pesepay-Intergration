@@ -29,6 +29,7 @@ def initiate_payment(request):
             pesepay.return_url = f'http:localhost:8000/payment/return?payment_id={payment.payment_id}'
             pesepay.result_url = 'http:localhost:8000/payment/result/'
 
+
             # Create a transaction
             transaction = pesepay.create_transaction(amount, currency, payment_reason)
 
