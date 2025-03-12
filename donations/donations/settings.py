@@ -19,7 +19,7 @@ if ENVIRONMENT == 'development':
 else:
     DEBUG=False
     
-ALLOWED_HOSTS = ["localhost", "127.0.0.1", "plugins.pesepay.com"]
+ALLOWED_HOSTS = ["localhost", "127.0.0.1", "plugins.pesepay.com", "plugins.pesepay.com/python"]
 
 
 INTERNAL_IPS=(
@@ -95,11 +95,11 @@ TEMPLATES = [
 WSGI_APPLICATION = 'donations.wsgi.application'
 
 # Database configuration
-# DATABASES = {
-#     'default': dj_database_url.config(
-#         default=os.getenv('DATABASE_URL')
-#     )
-# }
+DATABASES = {
+    'default': dj_database_url.config(
+        default=os.getenv('DATABASE_URL')
+    )
+}
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.mysql',
@@ -114,9 +114,9 @@ WSGI_APPLICATION = 'donations.wsgi.application'
 #     }
 # }
 
-DATABASES = {
-    'default': dj_database_url.config(default='mysql://root:sudo00477@localhost:3306/python')
-}
+# DATABASES = {
+#     'default': dj_database_url.config(default='mysql://root:sudo00477@localhost:3306/python')
+# }
 
 
 # Pesepay configuration
